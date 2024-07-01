@@ -3,6 +3,8 @@
  */
 package org.example;
 
+import java.util.stream.IntStream;
+
 public class App {
   public String getGreeting() {
     return "Hello World!";
@@ -10,6 +12,15 @@ public class App {
 
   public static void main(String[] args) {
     System.out.println(new App().getGreeting());
+    int[] x1 = { 2, 3 };
+    System.out.println("Sum of 2 and 3 is " + new Calculate(x1).sum() + ". " + "Average is "
+        + new Calculate(x1).Average() + ".");
+    int[] x2 = IntStream.rangeClosed(1, 10).toArray();
+    System.out.println("Sum of 1 and 10 is " + new Calculate(x2).sum() + ". " + "Average is "
+        + new Calculate(x2).Average() + ".");
+    int[] x3 = IntStream.rangeClosed(1, 10).filter(n -> n % 2 != 0).toArray();
+    int[] x4 = IntStream.rangeClosed(1, 10).filter(n -> n % 2 == 0).toArray();
+    System.out.println("Sum of odd of 1 to 10 is " + new Calculate(x3).sum() + ". " +
+        "Sum of even is " + new Calculate(x4).sum() + ". ");
   }
 }
-
